@@ -35,6 +35,8 @@
       --build-arg HEADLESS={{ headless }}
       --platform={{ build_platforms if (push | default(false) | bool) else 'linux/' + (ansible_facts['architecture'] | replace('x86_64', 'amd64') | replace('aarch64', 'arm64')) }}
       --provenance=false
+      {{ ('--cache-from ' + build_cache_from) if build_cache_from else '' }}
+      {{ ('--cache-to ' + build_cache_to) if build_cache_to else '' }}
       {{ '--push' if (push | default(false) | bool) else '--load' }}
       .
 

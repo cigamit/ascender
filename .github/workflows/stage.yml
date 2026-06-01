@@ -79,7 +79,9 @@ jobs:
             -e awx_version=${{ github.event.inputs.version }} \
             -e ansible_python_interpreter=$(which python3) \
             -e push=yes \
-            -e awx_official=no
+            -e awx_official=no \
+            -e "build_cache_from=type=gha,scope=${{ github.repository }}-release" \
+            -e "build_cache_to=type=gha,scope=${{ github.repository }}-release,mode=max"
 
       - name: Create draft release for Ascender
         working-directory: ascender
