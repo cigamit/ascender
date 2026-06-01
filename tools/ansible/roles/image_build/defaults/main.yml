@@ -3,3 +3,4 @@ awx_image: ansible/awx
 awx_image_tag: "{{ awx_docker_version }}"
 dockerfile_name: 'Dockerfile'
 headless: no
+build_platforms: "linux/amd64,linux/arm64"
