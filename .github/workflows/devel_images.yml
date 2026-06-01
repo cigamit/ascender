@@ -82,5 +82,6 @@ jobs:
             -e ansible_python_interpreter=$(which python3) \
             -e push=yes \
             -e awx_official=no \
+            -e build_platforms=linux/amd64 \
             -e "build_cache_from=type=gha,scope=${{ github.repository }}-devel" \
             -e "build_cache_to=type=gha,scope=${{ github.repository }}-devel,mode=max"
